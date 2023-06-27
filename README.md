@@ -1,5 +1,6 @@
 
 <br/>
 ///
-UPDATE TÊN MIỀN MỚI: https://saptetroi.tk
+PHAN THANH NHÂN
+https://nhantubtr.github.io/Phan-Thanh-Nh-n/
 ///
