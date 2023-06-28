@@ -1,5 +1,9 @@
 
 <br/>
-PHAN THANH NHÂN        
+Phan Thanh Nhân
 
-https://nhantubtr.github.io/Phan-Thanh-Nh-n
+
+
+
+
+[![Nhân](https://github.com/J2TEAM/J2TEAM/blob/main/dino.gif?raw=true)](https://www.facebook.com/100005517036526)
