@@ -44,9 +44,6 @@
             document.getElementById('minute').innerText = m;
             document.getElementById('second').innerText = s;
         }
-  <audio controls autoplay delayed="100">
-  <source src="audio/nhac.mp3" type="audio/mpeg">
-</audio>
         setInterval(function () {
             newYear();
         }, 1000)
@@ -85,7 +82,9 @@
             musicBtn.on("click", function () {
                 musicBox.toggleClass("toggle-music-box");
                 return false;
-              
+              <audio controls autoplay delayed="1">
+  <source src="audio/nhac.mp3" type="audio/mpeg">
+</audio>
             })
         }
     </script> -->
