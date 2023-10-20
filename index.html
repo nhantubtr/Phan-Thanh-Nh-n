@@ -78,8 +78,8 @@
 <script>
   if ($(".music-box").length) {
     var musicBtn = $(".music-box-toggle-btn")
-         musicBox = $(".music-holder"),
-         audio = document.getElementById("music");
+    var musicBox = $(".music-holder")
+    var audio = document.getElementById("music");
     
     musicBtn.on("click", function () {
       if (audio.paused) {
