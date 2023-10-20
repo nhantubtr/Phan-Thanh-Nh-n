@@ -1,28 +1,28 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-<meta charset="utf-8">
-<title>Đếm ngược Tết Giáp Thìn 2024</title>
-<link rel="stylesheet" href="style.css">
-<link rel="shortcut icon" href="icon.png" />
-<link rel="stylesheet" href="bootstrap.min.css">
-<script type="text/javascript" src="hoa.js"></script>
+    <meta charset="utf-8">
+    <title>Đếm ngược Tết Giáp Thìn 2024</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="icon.png" />
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script type="text/javascript" src="hoa.js"></script>
 </head>
 <body>
-<div class="container">
-<br>
-<h2><span>ĐƯỢC TẠO BỞI PHAN THANH NHÂN ĐẾM NGƯỢC TẾT GIÁP THÌN</span>2024</h2>
-<div class="countdown">
-<div id="day">Chúc</div>
-<div id="hour">Mừng</div>
-<div id="minute">Năm</div>
-<div id="second">Mới</div>
-</div>
-<div id="taitro">
-<a href="https://www.facebook.com/nhantubtr0326?mibextid=LQQJ4d" class="btn btn-outline-warning btn-sm" target="_blank">About Me</a>
-</div>
-</div>
-<script type="text/javascript">
+    <div class="container">
+        <br>
+        <h2><span>ĐƯỢC TẠO BỞI PHAN THANH NHÂN ĐẾM NGƯỢC TẾT GIÁP THÌN</span>2024</h2>
+        <div class="countdown">
+            <div id="day">Chúc</div>
+            <div id="hour">Mừng</div>
+            <div id="minute">Năm</div>
+            <div id="second">Mới</div>
+        </div>
+        <div id="taitro">
+            <a href="https://www.facebook.com/nhantubtr0326?mibextid=LQQJ4d" class="btn btn-outline-warning btn-sm" target="_blank">About Me</a>
+        </div>
+    </div>
+    <script type="text/javascript">
         var countDate = new Date('Feb 10, 2024 00:00:00').getTime();
 
         function newYear() {
@@ -46,45 +46,56 @@
         }
         setInterval(function () {
             newYear();
+        }, 1000)
+
+        var musicToggle = document.getElementById("musicToggle");
+        var musicPlayer = document.getElementById("musicPlayer");
+        var musicIFrame = document.getElementById("musicIFrame");
+        var isMusicPlaying = true;
+
+        musicToggle.addEventListener("click", function() {
+            if (isMusicPlaying) {
+                musicIFrame.src = "";
+                musicPlayer.style.display = "none";
+                musicToggle.title = "Bật nhạc";
+                musicToggle.classList.remove("fa-pause");
+                musicToggle.classList.add("fa-play");
+            } else {
+                musicIFrame.src = "https://www.youtube.com/embed/EL7dJimWzqw?controls=0&autoplay=1";
+                musicPlayer.style.display = "block";
+                musicToggle.title = "Tắt nhạc";
+                musicToggle.classList.remove("fa-play");
+                musicToggle.classList.add("fa-pause");
+            }
+            isMusicPlaying = !isMusicPlaying;
+        });
+    </script>
+    <script>
+        var fps = {
+            startTime : 0,
+            frameNumber : 0,
+            getFPS : function(){
+                this.frameNumber++;
+                var d = new Date().getTime(),
+                currentTime = ( d - this.startTime ) / 1000,
+                result = Math.floor( ( this.frameNumber / currentTime ) );
+                if( currentTime > 1 ){
+                    this.startTime = new Date().getTime();
+                    this.frameNumber = 0;
+                }
+                return result;
+            }
+        };
+
+        setInterval(function(){
+            document.getElementById("fps").innerHTML = "FPS: " + fps.getFPS();
         }, 1000);
     </script>
- <script>
-  var fps = {
-   startTime : 0,
-   frameNumber : 0,
-   getFPS : function(){
-    this.frameNumber++;
-    var d = new Date().getTime(),
-     currentTime = ( d - this.startTime ) / 1000,
-     result = Math.floor( ( this.frameNumber / currentTime ) );
-    if( currentTime > 1 ){
-     this.startTime = new Date().getTime();
-     this.frameNumber = 0;
-    }
-    return result;
-   }
-  };
-
-  setInterval(function(){
-   document.getElementById("fps").innerHTML = "FPS: " + fps.getFPS();
-  }, 1000);
-</script>
-<div class='music-box'>
-<button class='music-box-toggle-btn' title='Play music'><i class='fa fa-music'></i></button>
-<div class='music-holder'>
-<iframe allow='autoplay; encrypted-media' allowfullscreen='' frameborder='0' height='315' src='https://www.youtube.com/embed/EL7dJimWzqw?controls=0&autoplay=1' width='560'></iframe>
-</div>
-</div>
-<!-- <script type='text/javascript'>
-        if ($(".music-box").length) {
-            var musicBtn = $(".music-box-toggle-btn")
-                musicBox = $(".music-holder");
-            musicBtn.on("click", function () {
-                musicBox.toggleClass("toggle-music-box");
-                return false;
-              
-            })
-        }
-    </script> -->
+    <div class="music-box">
+        <button id="musicToggle" title="Bật/tắt nhạc"><i class="fa fa-music"></i></button>
+        <div id="musicPlayer" class="music-holder">
+            <iframe id="musicIFrame" allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315"="https://www.youtube.com/embed/EL7dJimWzqw?controls=0&autoplay=1" width=""></iframe>
+        </div>
+    </div>
 </body>
 </html>
