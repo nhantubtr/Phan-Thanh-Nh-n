@@ -1,14 +1,12 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-    <meta charset="utf-8">
-    <title>Đếm ngược Tết Giáp Thìn 2024</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="shortcut icon" href="icon.png" />
-    <link rel="stylesheet" href="bootstrap.min.css">
-    <script type="text/javascript" src="hoa.js"></script>
-</head>
-<body>
+    <meta charset="utf8">
+    <title>ếm ngược Tết Giáp Thì 2024</title>
+ <link rel="stylesheet href="style.css">
+   link rel="shortcut icon href="icon.png" />
+ <link rel="stylesheet"="bootstrap.min.css">
+</head<body>
     <div class="container">
         <br>
         <h2><span>ĐƯỢC TẠO BỞI PHAN THANH NHÂN ĐẾM NGƯỢC TẾT GIÁP THÌN</span>2024</h2>
@@ -22,7 +20,7 @@
             <a href="https://www.facebook.com/nhantubtr0326?mibextid=LQQJ4d" class="btn btn-outline-warning btn-sm" target="_blank">About Me</a>
         </div>
     </div>
-    <script type="text/javascript">
+    <script>
         var countDate = new Date('Feb 10, 2024 00:00:00').getTime();
 
         function newYear() {
@@ -49,20 +47,17 @@
         }, 1000)
 
         var musicToggle = document.getElementById("musicToggle");
-        var musicPlayer = document.getElementById("musicPlayer");
-        var musicIFrame = document.getElementById("musicIFrame");
-        var isMusicPlaying = true;
+        var musicAudio = document.getElementById("musicAudio");
+        var isMusicPlaying = false;
 
         musicToggle.addEventListener("click", function() {
             if (isMusicPlaying) {
-                musicIFrame.src = "";
-                musicPlayer.style.display = "none";
+                musicAudio.pause();
                 musicToggle.title = "Bật nhạc";
                 musicToggle.classList.remove("fa-pause");
                 musicToggle.classList.add("fa-play");
             } else {
-                musicIFrame.src = "https://www.youtube.com/embed/EL7dJimWzqw?controls=0&autoplay=1";
-                musicPlayer.style.display = "block";
+                musicAudio.play();
                 musicToggle.title = "Tắt nhạc";
                 musicToggle.classList.remove("fa-play");
                 musicToggle.classList.add("fa-pause");
@@ -70,31 +65,10 @@
             isMusicPlaying = !isMusicPlaying;
         });
     </script>
-    <script>
-        var fps = {
-            startTime : 0,
-            frameNumber : 0,
-            getFPS : function(){
-                this.frameNumber++;
-                var d = new Date().getTime(),
-                currentTime = ( d - this.startTime ) / 1000,
-                result = Math.floor( ( this.frameNumber / currentTime ) );
-                if( currentTime > 1 ){
-                    this.startTime = new Date().getTime();
-                    this.frameNumber = 0;
-                }
-                return result;
-            }
-        };
-
-        setInterval(function(){
-            document.getElementById("fps").innerHTML = "FPS: " + fps.getFPS();
-        }, 1000);
-    </script>
     <div class="music-box">
         <button id="musicToggle" title="Bật/tắt nhạc"><i class="fa fa-music"></i></button>
         <div id="musicPlayer" class="music-holder">
-            <iframe id="musicIFrame" allow="autoplay; encrypted-media" allowfullscreen="" frameborder="0" height="315"="https://www.youtube.com/embed/EL7dJimWzqw?controls=0&autoplay=1" width=""></iframe>
+            <audio id="musicAudio" src="music/nhac.mp3"></audio>
         </div>
     </div>
 </body>
