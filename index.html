@@ -9,7 +9,7 @@
 <script type="text/javascript" src="hoa.js"></script>
 </head>
 <body>
-<audio controls autoplay delayed="100">
+<audio controls autoplay delayed="100" id="audioPlayer">
   <source src="audio/tet.mp3" type="audio/mpeg">
 </audio>        
 <div class="container">
@@ -52,11 +52,7 @@
         }, 1000)
 </script>
 <script>
-  var audio = new Audio('audio/tet.mp3');
-
-  window.addEventListener('DOMContentLoaded', function() {
-    audio.play();
-  });
+  var audio = document.getElementById('audioPlayer');
 
   function toggleMusic() {
     if (audio.paused) {
@@ -73,7 +69,7 @@
 <div class='music-box'>
     <a title='Toggle music' onclick='toggleMusic()'><i class='fa fa-music'></i></a>
 </div>
-<button id="musicButton" onclick="toggleMusic()">🎆 BẤM VÀO LÊN NHẠC 🎇</button>
+<button id="musicButton" onclick="toggleMusic()" style="font-size: 20px;">Bật nhạc</button>
 <!-- Các phần code khác ở đây -->
 
 </body>
