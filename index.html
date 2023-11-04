@@ -9,6 +9,21 @@
 <link rel="stylesheet" href="bootstrap.min.css">
 <script type="text/javascript" src="hoa.js"></script>
 </head>
+<body style="background-color: black;">
+  <div style="width: 100%; height: 100%; text-align: center;">
+    <h1 id="text">Xin Chào 👋!</h1>
+    <button id="close">Đóng</button>
+  </div>
+
+  <script>
+    const closeButton = document.querySelector("#close");
+
+    closeButton.addEventListener("click", () => {
+      // Phát nhạc
+      const musicPath = "audio/tet.mp3";
+      const audio = new Audio(musicPath);
+      audio.play();
+   
 <body>
 <div class="container">
 <br>
