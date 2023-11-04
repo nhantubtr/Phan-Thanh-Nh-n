@@ -22,12 +22,27 @@
     <a href="https://www.facebook.com/nhantubtr0326?mibextid=LQQJ4d" class="btn btn-outline-warning btn-sm" target="_blank">About Me</a>
   </div>
 
-  <div id="black-box" style="width: 400px; height: 150px; background-color: #000000; color: #ffffff; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; border-radius: 10px;">
-    <h1 style="font-size: 40px;">Xin chào!</h1>
-    <button id="close" onclick="playMusic()">Đóng</button>
+  <div id="black-box" style="width: 300px; height: 150px; background-color: #000000; color: #ffffff; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px;">
+    <h1 style="font-size: 60px;">Xin chào!</h1>
+    <button id="close">Đóng</button>
   </div>
 
 </div>
+<script>
+  // Phát nhạc và ẩn bảng màu đen khi bấm nút "Đóng"
+  function close() {
+    // Phát nhạc
+    var audio = new Audio("audio/tet.mp3");
+    audio.play();
+
+    // Ẩn bảng màu đen
+    document.getElementById("black-box").style.display = "none";
+  }
+
+  // Ẩn bảng màu đen khi bấm nút "Đóng"
+  document.querySelector("#close").addEventListener("click", close);
+</script>
+
 <script type="text/javascript">
   var countDate = new Date('Feb 10, 2024 00:00:00').getTime();
 
@@ -53,18 +68,14 @@
   setInterval(function () {
     newYear();
   }, 1000)
+</script>
 
-  // Phát nhạc khi bấm đóng
-  function playMusic() {
-    // Phát nhạc
-    var audio = new Audio("audio/tet.mp3");
-    audio.play();
-  }
-
-  // Ẩn bảng màu đen khi bấm thoát
+<script type="text/javascript">
   window.addEventListener('beforeunload', function () {
-    document.getElementById("black-box").style.display = "none";
+    var audio = new Audio('audio/tet.mp3');
+    audio.play();
   });
 </script>
+
 </body>
 </html>
