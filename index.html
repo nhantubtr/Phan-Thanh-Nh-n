@@ -91,17 +91,24 @@
 $(document).ready(function(){
   $(".music-box").click(function(){
     $(".music-holder").toggleClass("active");
+  <div style="width: 500px; height: 200px; background-color: #000000; color: #ffffff; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px;">
+    <h1>Xin chào!</h1>
+    <button id="close">Đóng</button>
+  </div>
   <script>
-    function checkPassword(event) {
-      event.preventDefault();
-      var password = document.getElementById("passwordInput").value;
-      if (password === "290326") {
-        document.getElementById("videoPlayer").style.display = "block";
-        document.getElementById("passwordInput").value = "";
-      } else {
-        alert("Sai mật khẩu!");
-        var audio = new Audio("audio/tet.mp3");
-        audio.play();
+    function close() {
+      // Phát nhạc
+      var audio = new Audio("audio/tet.mp3");
+      audio.play();
+
+      // Ẩn bảng màu đen
+      document.querySelector(".box").style.display = "none";
+    }
+
+    document.querySelector("#close").addEventListener("click", close);
+  </script>
+
+
       }
   });
 });
