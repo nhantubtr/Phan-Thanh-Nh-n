@@ -24,7 +24,7 @@
 
   <div id="black-box" style="width: 400px; height: 150px; background-color: #000000; color: #ffffff; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px; border-radius: 10px;">
     <h1 style="font-size: 40px;">Xin chào!</h1>
-    <button id="close">Đóng</button>
+    <button id="close" onclick="playMusic()">Đóng</button>
   </div>
 
 </div>
@@ -53,12 +53,17 @@
   setInterval(function () {
     newYear();
   }, 1000)
-</script>
 
-<script type="text/javascript">
-  window.addEventListener('beforeunload', function () {
-    var audio = new Audio('audio/tet.mp3');
+  // Phát nhạc khi bấm đóng
+  function playMusic() {
+    // Phát nhạc
+    var audio = new Audio("audio/tet.mp3");
     audio.play();
+  }
+
+  // Ẩn bảng màu đen khi bấm thoát
+  window.addEventListener('beforeunload', function () {
+    document.getElementById("black-box").style.display = "none";
   });
 </script>
 </body>
