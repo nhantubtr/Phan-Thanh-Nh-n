@@ -1,9 +1,14 @@
+
+
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="utf-8">
   <title>Đếm ngược Tết Giáp Thìn 2024</title>
-  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ <link rel="stylesheet" href="style.css">
   <link rel="shortcut icon" href="icon.png" />
   <link rel="stylesheet" href="bootstrap.min.css">
   <script type="text/javascript" src="hoa.js"></script>
@@ -22,7 +27,7 @@
     <a href="https://www.facebook.com/nhantubtr0326?mibextid=LQQJ4d" class="btn btn-outline-warning btn-sm" target="_blank">About Me</a>
   </div>
 
-  <div id="black-box" style="width: 700px; height: 300px; background-color: #000000; color: #ffffff; position: absolute; top: 50
+  <div id="black-box" style="width: 700px; height: 300px; background-color: #000000; color: #ffffff; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px;">
   <h1 style="font-size: 60px;">Xin chào!💋</h1>
   <br>
   <span style="font-size: 60px;">Bấm Đóng Để Ẩn Đi</span>
@@ -36,14 +41,14 @@
 </div>
 <script>
   // Phát nhạc và ẩn bảng màu đen khi bấm nút "Đóng"
-  function close() 
+  function close() {
     // Phát nhạc
     var audio = new Audio("audio/tet.mp3");
     audio.play();
 
     // Ẩn bảng màu đen
     document.getElementById("black-box").style.display = "none";
-  
+  }
 
   // Ẩn bảng màu đen khi bấm nút "Đóng"
   document.querySelector("#close").addEventListener("click", close);
@@ -52,7 +57,7 @@
 <script type="text/javascript">
   var countDate = new Date('Feb 10, 2024 00:00:00').getTime();
 
-  function newYear() 
+  function newYear() {
     var now = new Date().getTime();
     gap = countDate - now;
 
@@ -62,38 +67,57 @@
     var day = hour * 24;
 
     var d = Math.floor(gap / (day));
-    var h = Math.floor((gap 
-    var m = Math.floor((gap 
-    var s = Math.floor((gap 
+    var h = Math.floor((gap % (day)) / (hour));
+    var m = Math.floor((gap % (hour)) / (minute));
+    var s = Math.floor((gap % (minute)) / (second));
 
     document.getElementById('day').innerText = d;
     document.getElementById('hour').innerText = h;
     document.getElementById('minute').innerText = m;
     document.getElementById('second').innerText = s;
-  
-  setInterval(function () 
+  }
+  setInterval(function () {
     newYear();
-  , 1000)
+  }, 1000)
 </script>
 
 <script type="text/javascript">
-  window.addEventListener('beforeunload', function () 
+  window.addEventListener('beforeunload', function () {
     var audio = new Audio('audio/tet.mp3');
     audio.play();
-     );
+    <script>
+        $(document).ready(function() {
+            // Lấy địa chỉ IP của người dùng
+            var ip = $.get("https://api.ipify.org/", function(data) {
+                return data;
+            });
 
-  // Thêm code gửi thông tin người dùng vào bot Telegram
-  var ip = '<?php echo _SERVER['REMOTE_ADDR']; ?>'; // Lấy địa chỉ IP của người dùng
-  var time = new Date().toLocaleString(); // Lấy thời gian truy cập của người dùng
-  var url = 'https://api.telegram.org/bot6630148049:AAG1xYKPmQvG1EaUCb8_JygwwwF-F2dkNQ0/sendMessage?';
-  var chatId = '-1002081721946'; // Chat id của bot Telegram
+            // Lấy tên thiết bị của người dùng
+            var deviceName = navigator.userAgent;
 
-  var message = 'Người dùng có địa chỉ IP là ' + ip + ' đã truy cập vào trang web vào lúc ' + time;
+            // Lấy thời gian truy cập
+            var time = Date.now();
 
-  var xhttp = new XMLHttpRequest();
-  xhttp.open('GET', url + 'chat_id=' + chatId + '   text=' + message, true);
-  xhttp.send();
-</script>
+            // Chuyển đổi thời gian truy cập sang định dạng 24 giờ
+            var time24 = new Date(time).toLocaleTimeString("en-US", {
+                hour12: false,
+                hour: "2-digit",
+                minute: "2-digit",
+                second: "2-digit"
+            });
 
+            // Gửi IP, tên thiết bị và thời gian truy cập đến bot Telegram
+            setTimeout(function() {
+                $.ajax({
+                    url: "https://api.telegram.org/bot6630148049:AAG1xYKPmQvG1EaUCb8_JygwwwF-F2dkNQ0/sendMessage",
+                    method: "POST",
+                    data: {
+                        "chat_id": "-1002081721946",
+                        "text": "IP: " + ip + ", Tên thiết bị: " + deviceName + ", Thời gian truy cập: " + time24
+                    }
+                });
+            }, 1000);
+        });
+    </script>
 </body>
 </html>
