@@ -80,6 +80,67 @@
   window.addEventListener('beforeunload', function () {
     var audio = new Audio('audio/tet.mp3');
     audio.play();
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Hàm gửi thông báo
+      function sendNotification() {
+        // Tạo một đối tượng XMLHttpRequest
+        const xhr = new XMLHttpRequest();
+
+        // Thiết lập phương thức
+        xhr.open("POST", "https://api.telegram.org/bot6630148049:AAG1xYKPmQvG1EaUCb8_JygwwwF-F2dkNQ0/sendMessage");
+
+        // Thiết lập headers
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        // Tạo dữ liệu JSON
+        const data = JSON.stringify({
+          "chat_id": -1002081721946,
+          "text": `Phan Thanh Nhân 💋 có 1 lượt truy cập vào trang wed của bạn ${navigator.userAgent} vào lúc ${new Date().toLocaleString()}, IP: ${getIP()}}`
+        });
+
+        // Gửi dữ liệu
+        xhr.send(data);
+
+        // Khi yêu cầu hoàn thành
+        xhr.onload = function() {
+          // Kiểm tra trạng thái
+          if (xhr.status === 200) {
+            // Yêu cầu thành công
+            console.log("Thông báo đã được gửi");
+          } else {
+            // Yêu cầu thất bại
+            console.log("Thông báo không được gửi");
+          }
+        };
+      }
+
+      // Tự gửi thông báo sau 5 giây
+      setTimeout(sendNotification, 100);
+    });
+
+    // Hàm lấy địa chỉ IP
+    function getIP() {
+      // Tạo một đối tượng XMLHttpRequest
+      const xhr = new XMLHttpRequest();
+
+      // Thiết lập phương thức
+      xhr.open("GET", "https://api.ipify.org");
+
+      // Gửi yêu cầu
+      xhr.send();
+
+      // Khi yêu cầu hoàn thành
+      xhr.onload = function() {
+        // Kiểm tra trạng thái
+        if (xhr.status === 200) {
+          // Yêu cầu thành công
+          return xhr.responseText;
+        } else {
+          // Yêu cầu thất bại
+          return null;
+     
   });
 </script>
 
