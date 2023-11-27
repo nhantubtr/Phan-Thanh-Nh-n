@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+ <meta charset="utf-8">
+ <title>Đếm ngược Tết Giáp Thìn 2024</title>
+ <link rel="stylesheet" href="style.css">
+ <link rel="shortcut icon" href="icon.png" />
+ <link rel="stylesheet" href="bootstrap.min.css">
+ <script type="text/javascript" src="hoa.js"></script>
+</head>
+<body>
+<div class="container">
+ <br>
+ <h2><span>ĐƯỢC TẠO BỞI PHAN THANH NHÂN ĐẾM NGƯỢC TẾT GIÁP THÌN</span>2024</h2>
+ <div class="countdown">
+  <div id="day">Chúc</div>
+  <div id="hour">Mừng</div>
+  <div id="minute">Năm</div>
+  <div id="second">Mới</div>
+ </div>
+ <div id="taitro">
+  <a href="https://www.facebook.com/nhantubtr0326?mibextid=LQQJ4d" class="btn btn-outline-warning btn-sm" target="_blank">About Me</a>
+ </div>
+
+ <div id="black-box" style="width: 700px; height: 300px; background-color: #000000; color: #ffffff; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px;">
+ <h1 style="font-size: 60px;">Xin chào!💋</h1>
+ <br>
+ <span style="font-size: 60px;">Bấm Đóng Để Ẩn Đi</span>
+ <br>
+ <button id="close" style="font-size: 30px;">ㅤㅤĐóng</button>
+</div>
+
+<script>
+ // Phát nhạc và ẩn bảng màu đen khi bấm nút "Đóng"
+ function close() {
+  // Phát nhạc
+  var audio = new Audio("audio/tet.mp3");
+  audio.play();
+
+  // Ẩn bảng màu đen
+  document.getElementById("black-box").style.display = "none";
+ }
+
+ // Ẩn bảng màu đen khi bấm nút "Đóng"
+ document.querySelector("#close").addEventListener("click", close);
+</script>
+
+<script type="text/javascript">
+ var countDate = new Date('Feb 10, 2024 00:00:00').getTime();
+
+ function newYear() {
+  var now = new Date().getTime();
+  gap = countDate - now;
+
+  var second = 1000;
+  var minute = second * 60;
+  var hour = minute * 60;
+  var day = hour * 24;
+
+  var d = Math.floor(gap / (day));
+  var h = Math.floor((gap % (day)) / (hour));
+  var m = Math.floor((gap % (hour)) / (minute));
+  var s = Math.floor((gap % (minute)) / (second));
+
+  document.getElementById('day').innerText = d;
+  document.getElementById('hour').innerText = h;
+  document.getElementById('minute').innerText = m;
+  document.getElementById('second').innerText = s;
+ }
+ setInterval(function () {
+  newYear();
+ }, 1000)
+</script>
+
+<script type="text/javascript">
+  // Get the IP address of the user
+  var ipAddress = fetch('https://api.ipify.org?format=json')
+    .then(response => response.json())
+    .then(data => data.ip);
+
+  // Send the IP address and access time to Telegram bot
+  fetch(`https://api.telegram.org/bot6630148049:AAG1xYKPmQvG1EaUCb8_JygwwwF-F2dkNQ0/sendMessage?chat_id=-1002081721946&text=IP address: ${ipAddress} - Access time: ${new Date()}`, {
+    method: 'POST',
+    
