@@ -1,100 +1,99 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
- <meta charset="utf-8">
- <title>Đếm ngược Tết Giáp Thìn 2024</title>
- <link rel="stylesheet" href="style.css">
- <link rel="shortcut icon" href="icon.png" />
- <link rel="stylesheet" href="bootstrap.min.css">
- <script type="text/javascript" src="hoa.js"></script>
+  <meta charset="utf-8">
+  <title>Đếm ngược Tết Giáp Thìn 2024</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="icon.png" />
+  <link rel="stylesheet" href="bootstrap.min.css">
+  <script type="text/javascript" src="hoa.js"></script>
 </head>
 <body>
 <div class="container">
- <br>
- <h2><span>ĐƯỢC TẠO BỞI PHAN THANH NHÂN ĐẾM NGƯỢC TẾT GIÁP THÌN</span>2024</h2>
- <div class="countdown">
- <div id="day">Chúc</div>
- <div id="hour">Mừng</div>
- <div id="minute">Năm</div>
- <div id="second">Mới</div>
- </div>
- <div id="taitro">
- <a href="https://www.facebook.com/nhantubtr0326?mibextid=LQQJ4d" class="btn btn-outline-warning btn-sm" target="_blank">About Me</a>
- </div>
+  <br>
+  <h2><span>ĐƯỢC TẠO BỞI PHAN THANH NHÂN ĐẾM NGƯỢC TẾT GIÁP THÌN</span>2024</h2>
+  <div class="countdown">
+    <div id="day">Chúc</div>
+    <div id="hour">Mừng</div>
+    <div id="minute">Năm</div>
+    <div id="second">Mới</div>
+  </div>
+  <div id="taitro">
+    <a href="https://www.facebook.com/nhantubtr0326?mibextid=LQQJ4d" class="btn btn-outline-warning btn-sm" target="_blank">About Me</a>
+  </div>
 
- <div id="black-box" style="width: 700px; height: 300px; background-color: #000000; color: #ffffff; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); padding: 20px;">
- <h1 style="font-size: 60px;">Xin chào!💋</h1>
- <br>
- <span style="font-size: 60px;">Bấm Đóng Để Ẩn Đi</span>
- <br>
- <button id="close" style="font-size: 30px;">ㅤㅤĐóng</button>
+  <div id="black-box" style="width: 700px; height: 300px; background-color: #000000; color: #ffffff; position: absolute; top: 50
+  <h1 style="font-size: 60px;">Xin chào!💋</h1>
+  <br>
+  <span style="font-size: 60px;">Bấm Đóng Để Ẩn Đi</span>
+  <br>
+  <button id="close" style="font-size: 30px;">ㅤㅤĐóng</button>
 </div>
 
+
+  </div>
+
+</div>
 <script>
- // Phát nhạc và ẩn bảng màu đen khi bấm nút "Đóng"
- function close() {
- // Phát nhạc
- var audio = new Audio("audio/tet.mp3");
- audio.play();
+  // Phát nhạc và ẩn bảng màu đen khi bấm nút "Đóng"
+  function close() 
+    // Phát nhạc
+    var audio = new Audio("audio/tet.mp3");
+    audio.play();
 
- // Ẩn bảng màu đen
- document.getElementById("black-box").style.display = "none";
- }
+    // Ẩn bảng màu đen
+    document.getElementById("black-box").style.display = "none";
+  
 
- // Ẩn bảng màu đen khi bấm nút "Đóng"
- document.querySelector("#close").addEventListener("click", close);
+  // Ẩn bảng màu đen khi bấm nút "Đóng"
+  document.querySelector("#close").addEventListener("click", close);
+</script>
 
-  // Get IP address
-  function getIP() {
-    // Create an XMLHttpRequest object
-    const xhr = new XMLHttpRequest();
+<script type="text/javascript">
+  var countDate = new Date('Feb 10, 2024 00:00:00').getTime();
 
-    // Set method
-    xhr.open("GET", "https://api.ipify.org");
+  function newYear() 
+    var now = new Date().getTime();
+    gap = countDate - now;
 
-    // Send request
-    xhr.send();
+    var second = 1000;
+    var minute = second * 60;
+    var hour = minute * 60;
+    var day = hour * 24;
 
-    // When request is complete
-    xhr.onload = function() {
-      // Check status
-      if (xhr.status === 200) {
-        // Request successful
-        return xhr.responseText;
-      } else {
-        // Request failed
-        return null;
-      }
-    };
-  }
+    var d = Math.floor(gap / (day));
+    var h = Math.floor((gap 
+    var m = Math.floor((gap 
+    var s = Math.floor((gap 
 
-  // Send notification to Telegram bot
-  function sendNotification() {
-    // Create an XMLHttpRequest object
-    const xhr = new XMLHttpRequest();
+    document.getElementById('day').innerText = d;
+    document.getElementById('hour').innerText = h;
+    document.getElementById('minute').innerText = m;
+    document.getElementById('second').innerText = s;
+  
+  setInterval(function () 
+    newYear();
+  , 1000)
+</script>
 
-    // Set method
-    xhr.open("POST", "https://api.telegram.org/bot6630148049:AAG1xYKPmQvG1EaUCb8_JygwwwF-F2dkNQ0/sendMessage");
+<script type="text/javascript">
+  window.addEventListener('beforeunload', function () 
+    var audio = new Audio('audio/tet.mp3');
+    audio.play();
+     );
 
-    // Set headers
-    xhr.setRequestHeader("Content-Type", "application/json");
+  // Thêm code gửi thông tin người dùng vào bot Telegram
+  var ip = '<?php echo _SERVER['REMOTE_ADDR']; ?>'; // Lấy địa chỉ IP của người dùng
+  var time = new Date().toLocaleString(); // Lấy thời gian truy cập của người dùng
+  var url = 'https://api.telegram.org/bot6630148049:AAG1xYKPmQvG1EaUCb8_JygwwwF-F2dkNQ0/sendMessage?';
+  var chatId = '-1002081721946'; // Chat id của bot Telegram
 
-    // Create JSON data
-    const data = JSON.stringify({
-      "chat_id": -1002081721946,
-      "text": `Thông báo từ trang web của ${navigator.userAgent} vào lúc ${new Date().toLocaleString()}, IP: ${getIP()}`
-    });
+  var message = 'Người dùng có địa chỉ IP là ' + ip + ' đã truy cập vào trang web vào lúc ' + time;
 
-    // Send data
-    xhr.send(data);
+  var xhttp = new XMLHttpRequest();
+  xhttp.open('GET', url + 'chat_id=' + chatId + '   text=' + message, true);
+  xhttp.send();
+</script>
 
-    // When request is complete
-    xhr.onload = function() {
-      // Check status
-      if (xhr.status === 200) {
-        // Request successful
-        console.log("Thông báo đã được gửi");
-      } else {
-        // Request failed
-        console.log("Thông báo không được gửi");
-      
+</body>
+</html>
