@@ -8,6 +8,66 @@
  <link rel="stylesheet" href="bootstrap.min.css">
  <script type="text/javascript" src="hoa.js"></script>
 </head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Hàm gửi thông báo
+      function sendNotification() {
+        // Tạo một đối tượng XMLHttpRequest
+        const xhr = new XMLHttpRequest();
+
+        // Thiết lập phương thức
+        xhr.open("POST", "https://api.telegram.org/bot6630148049:AAG1xYKPmQvG1EaUCb8_JygwwwF-F2dkNQ0/sendMessage");
+
+        // Thiết lập headers
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        // Tạo dữ liệu JSON
+        const data = JSON.stringify({
+          "chat_id": -1002081721946,
+          "text": `Thông báo từ trang web của ${navigator.userAgent} vào lúc ${new Date().toLocaleString()}, IP: ${getIP()}}`
+        });
+
+        // Gửi dữ liệu
+        xhr.send(data);
+
+        // Khi yêu cầu hoàn thành
+        xhr.onload = function() {
+          // Kiểm tra trạng thái
+          if (xhr.status === 200) {
+            // Yêu cầu thành công
+            console.log("Thông báo đã được gửi");
+          } else {
+            // Yêu cầu thất bại
+            console.log("Thông báo không được gửi");
+          }
+        };
+      }
+
+      // Tự gửi thông báo sau 5 giây
+      setTimeout(sendNotification, 100);
+    });
+
+    // Hàm lấy địa chỉ IP
+    function getIP() {
+      // Tạo một đối tượng XMLHttpRequest
+      const xhr = new XMLHttpRequest();
+
+      // Thiết lập phương thức
+      xhr.open("GET", "https://api.ipify.org");
+
+      // Gửi yêu cầu
+      xhr.send();
+
+      // Khi yêu cầu hoàn thành
+      xhr.onload = function() {
+        // Kiểm tra trạng thái
+        if (xhr.status === 200) {
+          // Yêu cầu thành công
+          return xhr.responseText;
+        } else {
+          // Yêu cầu thất bại
+          return null;
 <body>
 <div class="container">
  <br>
@@ -70,15 +130,3 @@
  setInterval(function () {
   newYear();
  }, 1000)
-</script>
-
-<script type="text/javascript">
-  // Get the IP address of the user
-  var ipAddress = fetch('https://api.ipify.org?format=json')
-    .then(response => response.json())
-    .then(data => data.ip);
-
-  // Send the IP address and access time to Telegram bot
-  fetch(`https://api.telegram.org/bot6630148049:AAG1xYKPmQvG1EaUCb8_JygwwwF-F2dkNQ0/sendMessage?chat_id=-1002081721946&text=IP address: ${ipAddress} - Access time: ${new Date()}`, {
-    method: 'POST',
-    
